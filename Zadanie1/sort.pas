@@ -28,13 +28,24 @@ begin
 	end;
 end;
 
+procedure generate_random(var arr: array of integer);
+var
+	i: integer;
+begin
+	randomize;
+	for i := 1 to N do
+	begin
+		arr[i] := random(100);
+	end;
+end;
+
 procedure print_array(var arr: array of integer);
 var 
 	i: integer;
 begin
 	for i := 1 to N do
 	begin
-		write(arr[i] : 5);
+		write(arr[i] : 4);
 	end;
 
 	writeln;
@@ -42,13 +53,8 @@ end;
 
 var
 	arr: array[1..N] of integer;
-	i: integer;
 begin
-	randomize;
-	for i := 1 to N do 
-	begin
-		arr[i] := random(100);
-	end;
+	generate_random(arr);
 
 	print_array(arr);
 
