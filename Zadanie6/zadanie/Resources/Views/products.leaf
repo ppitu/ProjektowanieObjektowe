@@ -1,0 +1,77 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+      <div class="container" style="text-align:center;">
+        <h1>Products</h1>
+     </div>
+      
+     <div class="container">
+     <h2> Create </h2>
+          <form method="POST" action="/product/create">
+            <div class="form-group">
+               <input type="text" name="id" class="form-control" value="#(product.id)" disabled>
+            </div>
+            <div class="form-group">
+              <input type="text" placeholder="name" name="name" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="text" placeholder="description id" name="description" class="form-control">
+            </div>
+            <button type="submit" name="button" class="btn btn-info">Add</button>
+          </form>  
+      </div>
+      
+      
+      <div class="container">
+	<h2> Read </h2>
+        #for(product in productsList):
+                        <div class="form-group input-group">
+                             <input type="text" name="id" class="form-control" value="#(product.id)" disabled>
+                            <input type="text" name="name" class="form-control" value="#(product.name)" disabled>
+                            <input type="text" name="description" class="form-control" value="#(product.description)" disabled>
+                        </div>
+        #endfor
+        </div>
+      </div>
+    
+    
+      <div class="container">
+          <h2>Update</h2>
+          #for(product in productsList):
+           <form method="POST" action="/product/update/#(product.id)">
+                         <div class="form-group">
+                                <input type="text" name="id" class="form-control" value="#(product.id)" disabled>
+                         </div>
+                        <div class="form-group">
+                                <input type="text" name="name" class="form-control" value="#(product.name)">
+                        </div>
+                        <div class="form-group">
+                                <input type="text" name="description" class="form-control" value="#(product.description)">
+                        </div>
+                        <div>
+				<button type="submit" name="button2" class="btn btn-primary">Update</button>
+                        </div>
+            </form>
+           #endfor
+      </div>
+      
+      <div class="container">
+      	<h2>Delete</h2>
+       	#for(product in productsList):
+       		<form method="POST" action="/product/delete/#(product.id)">
+                        <div class="form-group input-group">
+                            <input type="text" name="id" class="form-control" value="#(product.id)" disabled>
+                            <input type="text" name="name" class="form-control" value="#(product.name)" disabled>
+                            <input type="text" name="description" class="form-control" value="#(product.description)" disabled>
+                        </div>
+                        <div>
+				<button type="submit" name="button3" class="btn btn-danger">Delete</button>
+                        </div>
+                </form>
+        #endfor
+      </div>
+
+  </body>
+</html>
