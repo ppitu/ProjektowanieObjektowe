@@ -7,8 +7,7 @@ export const getServices = () => {
     return axios.get(serviceURL, {
         method: 'GET',
         headers: {
-            'Content-Type': 'application/json',
-            "Access-Control-Allow-Origin": "*"
+            'Content-Type': 'application/json'
         }
     })
 }
