@@ -176,3 +176,5 @@ gradle-app.setting
 .project
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
+
+Zadanie8/node_modules
