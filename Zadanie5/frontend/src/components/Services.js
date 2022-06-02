@@ -1,9 +1,7 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
-import { createPortal } from "react-dom";
 import {getServices} from "../RestRequester"
-import Orders from "./Order";
-import Payments from "./Payment";
+import Orders from "./Orders";
+import Payments from "./Payments";
 
 function Services() {
     const [services, setService] = useState([]);

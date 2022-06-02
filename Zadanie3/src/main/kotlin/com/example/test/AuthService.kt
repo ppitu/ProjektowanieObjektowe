@@ -7,7 +7,7 @@ object AuthService {
     private var username = "TestUser"
     private var password = "TestPassword"
 
-    fun login(username_: String, password_: String): Boolean {
-        return ((username_ == username) && (password_ == password))
+    fun login(usernamemy: String, passwordmy: String): Boolean {
+        return ((usernamemy == username) && (passwordmy == password))
     }
 }

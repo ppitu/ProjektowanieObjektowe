@@ -1,12 +1,15 @@
 import Fluent
 import Vapor
 
+let link = "/categories";
+
 struct CategoryController: RouteController {
+    /* Empty function */
     func boot(routes: RoutesBuilder) throws {
     }
 
     func create(req: Request) throws -> EventLoopFuture<Response> {
-        return try.content.decode(Category.self).save(on: req.db).map { _ in return req.redirect(to: "/categories")}
+        return try.content.decode(Category.self).save(on: req.db).map { _ in return req.redirect(to: link)}
     }
 
     func readAll(_ req: Request) throws -> EventLoopFuture<View> {
@@ -27,7 +30,7 @@ struct CategoryController: RouteController {
     		categories in
     		categories.name = input.name
     		categories.publisherId = input.publisherId
-    		return categories.save(on: req.db).map { _ in return req.redirect(to: "/categories")}
+    		return categories.save(on: req.db).map { _ in return req.redirect(to: link)}
     		} 
     }
 
@@ -35,6 +38,6 @@ struct CategoryController: RouteController {
         return Category.find(req.parameters.get("id"), on: req.db)
             .unwrap(or: Abort(.notFound))
             .flatMap { $0.delete(on: req.db) }
-            .map { _ in return req.redirect(to: "/categories")}
+            .map { _ in return req.redirect(to: link)}
     }
 }
