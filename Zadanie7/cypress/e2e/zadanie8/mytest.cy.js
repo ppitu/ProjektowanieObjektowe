@@ -101,7 +101,7 @@ context('My Test1', () => {
 			cy.get('.assertions-p')
 				.find('p')
 				.should(($p) => {
-					const texts = $p.map((i, el) => Cypress.$(el).text())
+					const texts = $p.map((_i, el) => Cypress.$(el).text())
 
 					const paragraphs = texts.get()
 
